@@ -1,15 +1,13 @@
-package com.pluralsight.futurevalue.model;
+package com.pluralsight.futurevalue.domain;
 
 import com.pluralsight.utils.BankBigDecimal;
 import lombok.Data;
-import lombok.Setter;
 
 @Data
-@Setter
-public class CertificateDeposit {
+public class CertificateOfDeposit {
     private BankBigDecimal deposit;
     private BankBigDecimal annualInterestRate;
-    private Integer years;
+    private Integer termInYears;
     private BankBigDecimal futureValue;
     private BankBigDecimal interestEarned;
 
@@ -17,17 +15,17 @@ public class CertificateDeposit {
         this.deposit = new BankBigDecimal(deposit);
     }
 
-    public void setAnnualInterestRate(double anualInterestRate) {
-        this.annualInterestRate = new BankBigDecimal(anualInterestRate);
+    public void setAnnualInterestRate(double annualInterestRate) {
+        this.annualInterestRate = new BankBigDecimal(annualInterestRate);
     }
 
-    public void setYears(int years) {
-        this.years = years;
+    public void setTermInYears(int termInYears) {
+        this.termInYears = termInYears;
     }
 
     public BankBigDecimal calculateFutureValue() {
         BankBigDecimal interestRate = this.annualInterestRate.divide(100);
-        int exponent = this.years * 365;
+        int exponent = this.termInYears * 365;
         BankBigDecimal base = BankBigDecimal.ONE.add(interestRate.divide(365));
         BankBigDecimal futureValue = this.deposit.multiply(base.pow(exponent));
         return futureValue;

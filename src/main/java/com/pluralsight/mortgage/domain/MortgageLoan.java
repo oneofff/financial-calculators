@@ -22,7 +22,7 @@ public class MortgageLoan {
         BankBigDecimal numerator = monthlyInterestRate.multiply(factor);
         BankBigDecimal denominator = factor.subtract(BigDecimal.ONE);
         BankBigDecimal monthlyPayment = this.principal.multiply(numerator.divide(denominator));
-
+        this.setMonthlyPayment(monthlyPayment);
         return monthlyPayment;
     }
 
@@ -30,9 +30,11 @@ public class MortgageLoan {
         int numberOfPayments = this.loanLength * 12;
 
         if (this.monthlyPayment == null)
-            monthlyPayment = this.calculateMonthlyPayment();
+            this.calculateMonthlyPayment();
 
-        return this.monthlyPayment.multiply(numberOfPayments).subtract(this.principal);
+        BankBigDecimal totalInterestPaid = this.monthlyPayment.multiply(numberOfPayments).subtract(this.principal);
+        this.setTotalInterestPaid(totalInterestPaid);
+        return totalInterestPaid;
     }
 
 

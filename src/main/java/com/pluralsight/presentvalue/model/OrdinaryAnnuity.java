@@ -2,8 +2,6 @@ package com.pluralsight.presentvalue.model;
 
 import com.pluralsight.utils.BankBigDecimal;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -20,7 +18,9 @@ public class OrdinaryAnnuity {
         BankBigDecimal factor = interestRate.add(BigDecimal.ONE).pow(-numberOfPayments);
         BankBigDecimal numerator = BankBigDecimal.ONE.subtract(factor);
         BankBigDecimal denominator = interestRate;
-        return this.monthlyPayout.multiply(numerator.divide(denominator));
+        BankBigDecimal multiply = this.monthlyPayout.multiply(numerator.divide(denominator));
+        this.presentValue = multiply;
+        return multiply;
     }
 
     public void setMonthlyPayout(double monthlyPayout) {

@@ -28,6 +28,7 @@ public class CertificateOfDeposit {
         int exponent = this.termInYears * 365;
         BankBigDecimal base = BankBigDecimal.ONE.add(interestRate.divide(365));
         BankBigDecimal futureValue = this.deposit.multiply(base.pow(exponent));
+        this.setFutureValue(futureValue);
         return futureValue;
     }
 
@@ -35,6 +36,8 @@ public class CertificateOfDeposit {
         if (this.futureValue == null) {
             this.futureValue = this.calculateFutureValue();
         }
-        return this.calculateFutureValue().subtract(this.deposit);
+        BankBigDecimal interestEarned = this.calculateFutureValue().subtract(this.deposit);
+        this.setInterestEarned(interestEarned);
+        return interestEarned;
     }
 }

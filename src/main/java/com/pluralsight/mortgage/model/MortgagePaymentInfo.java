@@ -2,25 +2,20 @@ package com.pluralsight.mortgage.model;
 
 import com.pluralsight.utils.BankBigDecimal;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Data
-@Setter
-@Getter
 public class MortgagePaymentInfo {
     private BankBigDecimal principal;
-    private BankBigDecimal interestRate;
+    private BankBigDecimal annualInterestRate;
     private Integer loanLength;
-    @Setter
     private BankBigDecimal monthlyPayment;
     private BankBigDecimal totalInterestPaid;
 
 
     public BankBigDecimal calculateMonthlyPayment() {
-        BankBigDecimal monthlyInterestRate = this.interestRate.divide(100).divide(12);
+        BankBigDecimal monthlyInterestRate = this.annualInterestRate.divide(100).divide(12);
         int numberOfPayments = this.loanLength * 12;
 
         BankBigDecimal factor = monthlyInterestRate.add(BigDecimal.ONE).pow(numberOfPayments);
@@ -46,8 +41,8 @@ public class MortgagePaymentInfo {
     }
 
 
-    public void setInterestRate(double interestRate) {
-        this.interestRate = new BankBigDecimal(interestRate);
+    public void setAnnualInterestRate(double annualInterestRate) {
+        this.annualInterestRate = new BankBigDecimal(annualInterestRate);
     }
 
     public void setLoanLength(int loanLength) {

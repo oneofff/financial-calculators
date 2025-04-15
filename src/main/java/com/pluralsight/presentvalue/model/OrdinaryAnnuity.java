@@ -13,12 +13,12 @@ import java.math.BigDecimal;
 public class OrdinaryAnnuity {
     private BankBigDecimal monthlyPayout;
     private BankBigDecimal expectedInterestRate;
-    private Integer years;
+    private Integer termInYears;
     private BankBigDecimal presentValue;
 
     public BankBigDecimal calculatePresentValue() {
         BankBigDecimal interestRate = this.expectedInterestRate.divide(100).divide(12);
-        int numberOfPayments = this.years * 12;
+        int numberOfPayments = this.termInYears * 12;
         BankBigDecimal factor = interestRate.add(BigDecimal.ONE).pow(-numberOfPayments);
         BankBigDecimal numerator = BankBigDecimal.ONE.subtract(factor);
         BankBigDecimal denominator = interestRate;

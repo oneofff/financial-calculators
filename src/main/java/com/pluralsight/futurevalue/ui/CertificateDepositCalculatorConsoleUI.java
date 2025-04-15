@@ -3,7 +3,7 @@ package com.pluralsight.futurevalue.ui;
 import com.pluralsight.futurevalue.domain.CertificateOfDeposit;
 import com.pluralsight.utils.ConsoleStringReader;
 
-public class CertificateDepositConsoleUI {
+public class CertificateDepositCalculatorConsoleUI {
 
 
     public static CertificateOfDeposit getCertificateDepositInfo() {

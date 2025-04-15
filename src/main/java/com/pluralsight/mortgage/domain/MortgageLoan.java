@@ -1,4 +1,4 @@
-package com.pluralsight.mortgage.model;
+package com.pluralsight.mortgage.domain;
 
 import com.pluralsight.utils.BankBigDecimal;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class MortgagePaymentInfo {
+public class MortgageLoan {
     private BankBigDecimal principal;
     private BankBigDecimal annualInterestRate;
     private Integer loanLength;
@@ -48,5 +48,4 @@ public class MortgagePaymentInfo {
     public void setLoanLength(int loanLength) {
         this.loanLength = loanLength;
     }
-
 }

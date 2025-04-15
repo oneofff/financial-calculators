@@ -1,13 +1,13 @@
 package com.pluralsight.futurevalue;
 
 import com.pluralsight.futurevalue.domain.CertificateOfDeposit;
-import com.pluralsight.futurevalue.ui.CertificateDepositConsoleUI;
+import com.pluralsight.futurevalue.ui.CertificateDepositCalculatorConsoleUI;
 
-public class CertificateDepositApp {
+public class CertificateDepositCalculatorApp {
     public static void main(String[] args) {
-        CertificateOfDeposit certificateOfDeposit = CertificateDepositConsoleUI.getCertificateDepositInfo();
+        CertificateOfDeposit certificateOfDeposit = CertificateDepositCalculatorConsoleUI.getCertificateDepositInfo();
         certificateOfDeposit.setFutureValue(certificateOfDeposit.calculateFutureValue());
         certificateOfDeposit.setInterestEarned(certificateOfDeposit.calculateInterestEarned());
-        CertificateDepositConsoleUI.printCertificateDepositInfo(certificateOfDeposit);
+        CertificateDepositCalculatorConsoleUI.printCertificateDepositInfo(certificateOfDeposit);
     }
 }

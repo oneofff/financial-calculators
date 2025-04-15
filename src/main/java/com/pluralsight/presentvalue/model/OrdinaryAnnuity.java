@@ -8,8 +8,6 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Data
-@Setter
-@Getter
 public class OrdinaryAnnuity {
     private BankBigDecimal monthlyPayout;
     private BankBigDecimal expectedInterestRate;
@@ -32,6 +30,4 @@ public class OrdinaryAnnuity {
     public void setInterestRate(double positiveDouble) {
         this.expectedInterestRate = new BankBigDecimal(positiveDouble);
     }
-
-
 }

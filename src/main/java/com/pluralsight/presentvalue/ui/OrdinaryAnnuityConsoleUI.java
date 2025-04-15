@@ -1,9 +1,9 @@
-package com.pluralsight.presentvalue;
+package com.pluralsight.presentvalue.ui;
 
 import com.pluralsight.presentvalue.model.OrdinaryAnnuity;
 import com.pluralsight.utils.ConsoleStringReader;
 
-public class OrdinaryAnnuityCalculator {
+public class OrdinaryAnnuityConsoleUI {
 
     public static OrdinaryAnnuity getOrdinaryAnnuity() {
         OrdinaryAnnuity ordinaryAnnuity = new OrdinaryAnnuity();

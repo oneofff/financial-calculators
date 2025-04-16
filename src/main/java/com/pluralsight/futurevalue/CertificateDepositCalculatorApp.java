@@ -6,8 +6,8 @@ import com.pluralsight.futurevalue.ui.CertificateDepositCalculatorConsoleUI;
 public class CertificateDepositCalculatorApp {
     public static void main(String[] args) {
         CertificateOfDeposit certificateOfDeposit = CertificateDepositCalculatorConsoleUI.getCertificateDepositInfo();
-        certificateOfDeposit.setFutureValue(certificateOfDeposit.calculateFutureValue());
-        certificateOfDeposit.setInterestEarned(certificateOfDeposit.calculateInterestEarned());
+        certificateOfDeposit.calculateFutureValue();
+        certificateOfDeposit.calculateInterestEarned();
         CertificateDepositCalculatorConsoleUI.printCertificateDepositInfo(certificateOfDeposit);
     }
 }

@@ -6,8 +6,8 @@ import com.pluralsight.mortgage.ui.MortgageCalculatorConsoleUI;
 public class MortgageCalculatorApp {
     public static void main(String[] args) {
         MortgageLoan mortgageInfo = MortgageCalculatorConsoleUI.getMortgageInfo();
-        mortgageInfo.setMonthlyPayment(mortgageInfo.calculateMonthlyPayment());
-        mortgageInfo.setTotalInterestPaid(mortgageInfo.calculateTotalInterestPaid());
+        mortgageInfo.calculateMonthlyPayment();
+        mortgageInfo.calculateTotalInterestPaid();
         MortgageCalculatorConsoleUI.printMortgageInfo(mortgageInfo);
     }
 }
